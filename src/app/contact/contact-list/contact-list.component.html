@@ -1,0 +1,11 @@
+<div class="contact-list">
+  <h2>Contact List</h2>
+  <input type="text" [(ngModel)]="newContact.name" placeholder="Name">
+  <input type="text" [(ngModel)]="newContact.phone" placeholder="Phone">
+  <button (click)="addContact()">Add Contact</button>
+
+  <input type="text" [(ngModel)]="searchText" placeholder="Search by Name" (keyup)="searchContacts()">
+  <ul>
+    <li *ngFor="let contact of filteredContacts">{{ contact.name }} - {{ contact.phone }}</li>
+  </ul>
+</div>

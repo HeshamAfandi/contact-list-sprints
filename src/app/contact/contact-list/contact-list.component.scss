@@ -1,0 +1,29 @@
+.contact-list {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  input, button {
+    margin: 5px;
+    padding: 5px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      background-color: #f0f0f0;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 5px;
+    }
+  }
+}
