@@ -6,6 +6,17 @@
 
   <input type="text" [(ngModel)]="searchText" placeholder="Search by Name" (keyup)="searchContacts()">
   <ul>
-    <li *ngFor="let contact of filteredContacts">{{ contact.name }} - {{ contact.phone }}</li>
+    <li *ngFor="let contact of filteredContacts">
+      <ng-container *ngIf="editingContact !== contact; else editForm">
+        {{ contact.name }} - {{ contact.phone }}
+        <button (click)="editContact(contact)">Edit</button>
+        <button (click)="deleteContact(contact)">Delete</button>
+      </ng-container>
+      <ng-template #editForm>
+        <input type="text" [(ngModel)]="contact.name">
+        <input type="text" [(ngModel)]="contact.phone">
+        <button (click)="saveEditedContact(contact)">Save</button>
+      </ng-template>
+    </li>
   </ul>
 </div>

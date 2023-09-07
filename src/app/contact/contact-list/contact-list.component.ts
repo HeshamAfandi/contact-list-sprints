@@ -17,6 +17,7 @@ export class ContactListComponent {
   searchText: string = '';
   contacts: Contact[] = [];
   filteredContacts: Contact[] = [];
+  editingContact:Contact |null=null;
   
   addContact(): void {
     if (this.newContact.name.trim() !== '') {
@@ -32,4 +33,19 @@ export class ContactListComponent {
       contact.name.toLowerCase().includes(this.searchText.toLowerCase())
     );
   }
+  editContact(contact: Contact): void {
+    this.editingContact = contact;
+  }
+
+  saveEditedContact(contact: Contact): void {
+    this.editingContact = null; // Clear the editing state
+  }
+  deleteContact(contact: Contact): void {
+    const index = this.contacts.indexOf(contact);
+    if (index !== -1) {
+      this.contacts.splice(index, 1);
+      this.filteredContacts = this.contacts;
+    }
+  }
+
 }
